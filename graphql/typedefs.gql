@@ -1,0 +1,42 @@
+type Query {
+    # Elemi példa:
+    helloWorld: String
+
+    # Példa paraméterezésre:
+    helloName(name: String!): String
+
+    # TODO: Készítsd el a schema hiányzó részeit
+}
+
+type Query {
+  helloWorld: String
+  helloName(name: String!): String
+  players(activeOnly: Boolean!): [Player]!
+  player(id: ID!): Player
+  intervals: [Interval]!
+}
+
+type Mutation {
+  createResult(playerEmail: String!, score: Int!, verified: Boolean!): String!
+  setPlayerActive(id: ID!, active: Boolean!): Player
+}
+
+type Player {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int!
+  active: Boolean!
+  TeamId: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  teamName: String!
+  scores: [Int]!
+}
+
+type Interval {
+  lower: Int!
+  upper: Int!
+  count: Int!
+}
+
